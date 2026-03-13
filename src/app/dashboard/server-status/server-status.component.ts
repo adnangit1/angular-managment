@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './server-status.component.css'
 })
 export class ServerStatusComponent implements OnInit {
+  private interval?: ReturnType<typeof setInterval>;
 
     currentStatus = 'offline';
 
     constructor() {}
           ngOnInit() {  
 
-      setInterval(() => {
+      this.interval = setInterval(() => {
         const rnd = Math.random();
 
         if (rnd < 0.5) {
@@ -26,7 +27,15 @@ export class ServerStatusComponent implements OnInit {
         }
       }, 5000);
 
+      
     }
 
+    ngAfterViewInit() {
+      console.log('AFTER VIEW INIT');
+    }
+
+    ngOnDestroy() {
+      clearTimeout(this.interval);
+    }
 
 }

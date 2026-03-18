@@ -1,5 +1,7 @@
 <app-header />
 
+@if (!showTasks) {
+
 <main>
   <div id="dashboard">
 
@@ -22,11 +24,24 @@
     </app-dashboard-item>
 
     <app-dashboard-item
-  [image]="{ src: 'list.png', alt: 'Management' }"
-  title="Management"
->
-  <app-tasks userId="u1" name="Management"></app-tasks>
-</app-dashboard-item>
+      [image]="{ src: 'list.png', alt: 'Management' }"
+      title="Management">
+      <button (click)="openTasks()">Open Task Manager</button>
+    </app-dashboard-item>
 
   </div>
 </main>
+
+}
+
+@if (showTasks) {
+
+<section class="task-fullscreen">
+
+  <button class="back-btn" (click)="closeTasks()">← Back to Dashboard</button>
+
+  <app-tasks userId="u1" name="Management"></app-tasks>
+
+</section>
+
+}

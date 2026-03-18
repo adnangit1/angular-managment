@@ -23,4 +23,15 @@ export class AppComponent {
   dummyTrafficData = [
   ];
   currentStatus = 'online';
+
+showTasks = false;
+
+openTasks() {
+  this.showTasks = true;
+}
+
+closeTasks() {
+  this.showTasks = false;
+}
+
 }

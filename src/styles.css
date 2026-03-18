@@ -32,3 +32,24 @@ main {
     flex-direction: row;
   }
 }
+
+.task-fullscreen {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background: #f4f6f8;
+}
+
+.back-btn {
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #3f51b5;
+  color: white;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #2f3fa0;
+}

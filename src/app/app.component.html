@@ -1,17 +1,47 @@
 <app-header />
 
+@if (!showTasks) {
+
 <main>
   <div id="dashboard">
-    <app-dashboard-item [image]="{ src: 'status.png', alt: 'A sinal symbol' }" title="Server Status" >
+
+    <app-dashboard-item 
+      [image]="{ src: 'status.png', alt: 'A signal symbol' }" 
+      title="Server Status">
       <app-server-status />
     </app-dashboard-item>
-    
-    <app-dashboard-item [image]="{ src: 'globe.png', alt: 'A signal symbol' }" title="Traffic " >
+
+    <app-dashboard-item 
+      [image]="{ src: 'globe.png', alt: 'A signal symbol' }" 
+      title="Traffic">
       <app-traffic />
     </app-dashboard-item>
 
-    <app-dashboard-item [image]="{ src: 'list.png', alt: 'A list' }" title="Support Tickets" >
+    <app-dashboard-item 
+      [image]="{ src: 'list.png', alt: 'A list' }" 
+      title="Support Tickets">
       <app-tickets />
     </app-dashboard-item>
+
+    <app-dashboard-item
+      [image]="{ src: 'list.png', alt: 'Management' }"
+      title="Management">
+      <button (click)="openTasks()">Open Task Manager</button>
+    </app-dashboard-item>
+
   </div>
 </main>
+
+}
+
+@if (showTasks) {
+
+<section class="task-fullscreen">
+
+  <button class="back-btn" (click)="closeTasks()">← Back to Dashboard</button>
+
+  <app-tasks userId="u1" name="Management"></app-tasks>
+
+</section>
+
+}
